@@ -1,0 +1,53 @@
+public class PingPongMain{
+
+   public static void main(String args[]){ 
+	    
+        PingPong ping = new PingPong("______ping",Thread.MIN_PRIORITY);// 1/30 sec
+        //PingPong pong = new PingPong("PONG",Thread.MAX_PRIORITY); // 1/10 sec
+        ping.print100Stam();
+        ping.start();
+        
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        ping.print100Stam();
+        
+        //ping.start();
+//       
+   }
+
+}                
+
+ 
+class PingPong extends Thread{
+    private String word;
+    public void print100Stam()
+    {
+    	for (int i = 0; i < 100; i++) {
+    		System.out.println("stam");
+			
+		}
+    }
+     
+    public PingPong(String whatToSay,int priority) {
+            word = whatToSay;
+            this.setPriority(priority);
+                         
+            
+    }
+
+   @Override
+    public void run() { 
+            for(int i = 0;i<100;i++) {
+                System.out.println(word+" ");
+            }
+           
+ 
+    }            
+    
+
+}        
